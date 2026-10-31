@@ -1,6 +1,6 @@
 # GRAND RP · Admin-Bewerbung · Lenny Kok
 
-Persönliche Bewerbung von **Lenny Kok** (ID 126082) für das Admin-Team von GRAND RP DE1 – als statische Website ohne Build-Schritt, gestaltet im Stil eines Los-Santos-Plakats.
+Persönliche Bewerbung von **Lenny Kok** (ID 126082) für das Admin-Team von GRAND RP DE1 – als statische Website ohne Build-Schritt, gestaltet im Stil „Vice Night“: Milchglas-Flächen über schwebenden Glasperlen, Verlauf von Cyan über Blau zu Magenta.
 
 Live: https://cyrexmv.github.io/ADMIN-GRAND-LENNY/
 
@@ -19,7 +19,7 @@ Live: https://cyrexmv.github.io/ADMIN-GRAND-LENNY/
 ```
 assets/
   css/style.css  Design (Tokens, Layout, Komponenten, Seiten, Druck)
-  js/app.js      Interaktionen (Hell/Dunkel, Menü, Kopieren von ID und Discord, Inhaltsverzeichnis)
+  js/app.js      Interaktionen (Hell/Dunkel, Menü, Scroll-Effekt, Glasperlen-Tiefe, Kopieren von ID und Discord, Inhaltsverzeichnis)
   img/           Wappen (SVG) und Social-Preview
 favicon.svg
 apple-touch-icon.png
@@ -27,8 +27,8 @@ apple-touch-icon.png
 
 ## IC / OOC
 
-- **IC – In Character** (Orange): alles zum Charakter *Lenny Kok* – Charaktername, Spieler-ID, Organisationen sowie die Fragen 03–05.
-- **OOC – Out of Character** (Türkis): alles zu *Lenny* als Person – Name, Alter, Discord, Voraussetzungen, Online-Zeiten und Regelkenntnis (Fragen 01–02).
+- **IC – In Character** (Magenta): alles zum Charakter *Lenny Kok* – Charaktername, Spieler-ID, Organisationen sowie die Fragen 03–05.
+- **OOC – Out of Character** (Blau): alles zu *Lenny* als Person – Name, Alter, Discord, Voraussetzungen, Online-Zeiten und Regelkenntnis (Fragen 01–02).
 
 ## Lokal ansehen
 

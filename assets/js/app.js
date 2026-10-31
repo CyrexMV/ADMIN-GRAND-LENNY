@@ -14,7 +14,7 @@
   const isDark = () => root.dataset.theme === 'dark';
   const syncTheme = () => {
     themeButtons.forEach((b) => b.setAttribute('aria-label', isDark() ? 'Helles Design aktivieren' : 'Dunkles Design aktivieren'));
-    themeColor?.setAttribute('content', isDark() ? '#0e1017' : '#11131b');
+    themeColor?.setAttribute('content', isDark() ? '#060914' : '#070b1e');
   };
   themeButtons.forEach((button) => button.addEventListener('click', () => {
     root.dataset.theme = isDark() ? 'light' : 'dark';
@@ -73,6 +73,63 @@
       }
     });
   });
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Scroll-Effekt: Karten erscheinen nacheinander ---------- */
+  const revealables = [...document.querySelectorAll('[data-reveal]')];
+  if (revealables.length && !reduceMotion) {
+    root.classList.add('reveal-ready');
+    let pending = revealables.slice();
+    const show = (els) => {
+      // Was gleichzeitig ins Bild kommt, erscheint in Leserichtung versetzt
+      const pos = (el) => { const r = el.getBoundingClientRect(); return [Math.round(r.top / 40), r.left]; };
+      els.sort((a, b) => pos(a)[0] - pos(b)[0] || pos(a)[1] - pos(b)[1]);
+      els.forEach((el, i) => {
+        el.style.setProperty('--stagger', `${i * 130}ms`);
+        el.classList.add('is-in');
+        // Danach reagiert die Karte ohne Verzögerung auf Hover
+        setTimeout(() => el.style.setProperty('--stagger', '0ms'), i * 130 + 1700);
+      });
+    };
+    // Alles, was ins Bild gekommen ist (oder schon darüber liegt), wird angezeigt
+    const scan = () => {
+      const limit = window.innerHeight * 0.92;
+      const due = pending.filter((el) => el.getBoundingClientRect().top < limit);
+      if (!due.length) return;
+      pending = pending.filter((el) => !due.includes(el));
+      show(due);
+      if (!pending.length) {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+      }
+    };
+    let timer = 0;
+    const onScroll = () => {
+      if (!timer) timer = setTimeout(() => { timer = 0; scan(); }, 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    scan();
+    window.addEventListener('beforeprint', () => revealables.forEach((el) => el.classList.add('is-in')));
+  }
+
+  /* ---------- Glasperlen: Tiefe beim Scrollen ---------- */
+  const beads = document.querySelector('.beads');
+  if (beads && !reduceMotion) {
+    let ticking = false;
+    const update = () => {
+      beads.style.setProperty('--sy', String(Math.round(window.scrollY)));
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  }
 
   /* ---------- Inhaltsverzeichnis ---------- */
   const tocLinks = [...document.querySelectorAll('[data-toc] a[href^="#"]')];
