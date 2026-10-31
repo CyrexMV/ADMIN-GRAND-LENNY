@@ -12,14 +12,14 @@ Live: https://cyrexmv.github.io/ADMIN-GRAND-LENNY/
 | `ueber-mich.html` | Kapitel 01 – Profil, Haltung und Werte |
 | `voraussetzungen.html` | Kapitel 02 – Alle Kriterien mit Statuscheck (4 / 4) |
 | `erfahrung.html` | Kapitel 03 – Organisationen, Regelwerk, Motivation, Online-Zeiten |
-| `bewerbung.html` | Kapitel 04 – Vollständige Bewerbung mit Inhaltsverzeichnis, Kopier- und Druckfunktion |
+| `bewerbung.html` | Kapitel 04 – Vollständige Bewerbung mit Inhaltsverzeichnis |
 
 ## Struktur
 
 ```
 assets/
   css/style.css  Design (Tokens, Layout, Komponenten, Seiten, Druck)
-  js/app.js      Interaktionen (Hell/Dunkel, Menü, Kopieren, Bewerbung als Text, Drucken, Inhaltsverzeichnis)
+  js/app.js      Interaktionen (Hell/Dunkel, Menü, Kopieren von ID und Discord, Inhaltsverzeichnis)
   img/           Wappen (SVG) und Social-Preview
 favicon.svg
 apple-touch-icon.png

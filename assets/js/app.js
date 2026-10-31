@@ -74,29 +74,6 @@
     });
   });
 
-  /* ---------- Ganze Bewerbung als Text kopieren ---------- */
-  const source = document.getElementById('bewerbung-text');
-  document.querySelectorAll('[data-copy-all]').forEach((button) => {
-    button.addEventListener('click', async () => {
-      const text = (source?.content ?? source)?.textContent.trim() ?? '';
-      try {
-        await copy(text);
-        toast('Bewerbung kopiert');
-      } catch {
-        const area = document.querySelector('.copy-text');
-        if (area) {
-          area.value = text;
-          area.classList.add('is-shown');
-          area.focus();
-          area.select();
-        }
-      }
-    });
-  });
-
-  /* ---------- Drucken ---------- */
-  document.querySelectorAll('[data-print]').forEach((b) => b.addEventListener('click', () => window.print()));
-
   /* ---------- Inhaltsverzeichnis ---------- */
   const tocLinks = [...document.querySelectorAll('[data-toc] a[href^="#"]')];
   if (tocLinks.length && 'IntersectionObserver' in window) {
