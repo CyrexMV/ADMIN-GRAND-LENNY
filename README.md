@@ -1,6 +1,7 @@
 # GRAND RP · Admin-Bewerbung · Lenny Kok
 
-Persönliche Bewerbung von **Lenny Kok** (ID 126082) für das Admin-Team von GRAND RP DE1 – als statische Website ohne Build-Schritt, gestaltet im Stil „Vice Night“: Milchglas-Flächen über schwebenden Glasperlen, Verlauf von Cyan über Blau zu Magenta.
+Bewerbung von **Lenny Kok** (ID 126082) für das Admin-Team von GRAND RP DE1 – als statische Website ohne Build-Schritt.
+Sie kombiniert zwei Vorlagen: die filmische Scroll-Erzählung (Skyline, Zeitleiste, gepinnter Abschnitt, Unterschrift) und die Admin-Akte (IC/OOC-Trennung, Statuscheck, Wappen). Dunkel, Gold und Orange, Rot als zweiter Akzent.
 
 Live: https://cyrexmv.github.io/ADMIN-GRAND-LENNY/
 
@@ -8,34 +9,32 @@ Live: https://cyrexmv.github.io/ADMIN-GRAND-LENNY/
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Startseite mit Hero, Kennzahlen, Absicht und Kapitelübersicht |
-| `ueber-mich.html` | Kapitel 01 – Profil, Haltung und Werte |
-| `voraussetzungen.html` | Kapitel 02 – Alle Kriterien mit Statuscheck (4 / 4) |
-| `erfahrung.html` | Kapitel 03 – Organisationen, Regelwerk, Motivation, Online-Zeiten |
-| `bewerbung.html` | Kapitel 04 – Vollständige Bewerbung mit Inhaltsverzeichnis |
+| `index.html` | Lange Scroll-Seite: Start, Begrüßung mit Kurzdaten, Über mich, Erfahrung (Zeitleiste), „Warum ich“, Schlusswort |
+| `voraussetzungen.html` | Alle Kriterien mit Statuscheck (4 / 4) |
+| `bewerbung.html` | Vollständige Bewerbung mit Inhaltsverzeichnis |
+| `ueber-mich.html`, `erfahrung.html` | Weiterleitungen auf die Abschnitte der Startseite |
 
 ## Struktur
 
 ```
 assets/
-  css/style.css  Design (Tokens, Layout, Komponenten, Seiten, Druck)
-  js/app.js      Interaktionen (Hell/Dunkel, Menü, Scroll-Effekt, Glasperlen-Tiefe, Kopieren von ID und Discord, Inhaltsverzeichnis)
+  css/style.css  Design (Tokens, Atmosphäre, Komponenten, Seiten, Druck)
+  js/app.js      Interaktionen (Ladezähler, Intro, Scroll-Erscheinen, Skyline, Zeitleiste,
+                 gepinnter Abschnitt, Unterschrift, Wappen-Neigung, Cursor, Kopieren, Inhaltsverzeichnis)
   img/           Wappen (SVG) und Social-Preview
 favicon.svg
 apple-touch-icon.png
 ```
 
+Keine externen Bibliotheken außer Google Fonts. Ohne JavaScript bleibt jede Seite vollständig lesbar, und `prefers-reduced-motion` schaltet alle Animationen ab.
+
 ## IC / OOC
 
-- **IC – In Character** (Magenta): alles zum Charakter *Lenny Kok* – Charaktername, Spieler-ID, Organisationen sowie die Fragen 03–05.
-- **OOC – Out of Character** (Blau): alles zu *Lenny* als Person – Name, Alter, Discord, Voraussetzungen, Online-Zeiten und Regelkenntnis (Fragen 01–02).
+- **IC – In Character** (Gold): alles zum Charakter *Lenny Kok* – Nickname, Spieler-ID, Organisationen sowie die Fragen 03–05.
+- **OOC – Out of Character** (Blau): alles zu *Lenny* als Person – Name, Alter, Discord, Voraussetzungen, Online-Zeit und Regelkenntnis (Fragen 01–02).
 
 ## Lokal ansehen
-
-`index.html` im Browser öffnen oder einen lokalen Server starten:
 
 ```bash
 npx serve .
 ```
-
-Die Seiten sind mit `noindex` markiert, damit sie nicht in Suchmaschinen landen.
